@@ -1,8 +1,15 @@
 import React from 'react';
-import Home from './components/Home/Home';
+import { Main } from './components/Main';
+import { Navigation } from './components/Navigation';
+import 'antd/dist/antd.css';
 
 const App = () => {
-  return <Home />;
+  return (
+    <>
+      <Navigation />
+      <Main />
+    </>
+  );
 };
 
 export default App;
