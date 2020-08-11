@@ -78,6 +78,5 @@ export const CityTree = memo(({ cityData }) => {
 });
 
 CityTree.propTypes = {
-  cityData: PropTypes.object,
-  option: PropTypes.string
+  cityData: PropTypes.object
 };
