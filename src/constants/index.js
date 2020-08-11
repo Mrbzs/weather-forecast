@@ -1,5 +1,6 @@
 export const BASE_URL = 'https://api.openweathermap.org/data/2.5/onecall';
 export const API_KEY = '5ef67bc28bee070fb605bb14993c4c75';
+export const OPTIONS = ['current', 'hourly', 'daily'];
 export const CITIES = [
   {
     name: 'Nicosia',

@@ -1,15 +1,21 @@
 import React from 'react';
-import { Main } from './components/Main';
-import { Navigation } from './components/Navigation';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
+import { CitySelect } from './components/CitySelect';
+import { Main } from './components/Main';
+import { CityProvider } from './context';
 
-const App = () => {
+const { Content } = Layout;
+
+export const App = () => {
   return (
-    <>
-      <Navigation />
-      <Main />
-    </>
+    <CityProvider>
+      <Layout className="layout">
+        <Content>
+          <CitySelect />
+          <Main />
+        </Content>
+      </Layout>
+    </CityProvider>
   );
 };
-
-export default App;
