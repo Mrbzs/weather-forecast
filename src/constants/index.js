@@ -16,5 +16,15 @@ export const CITIES = [
     name: 'Limassol',
     lat: 33.07,
     lon: 34.67
+  },
+  {
+    name: 'Dubai',
+    lat: 55.3,
+    lon: 25.26
+  },
+  {
+    name: 'Tbilisi',
+    lat: 44.83,
+    lon: 41.69
   }
 ];

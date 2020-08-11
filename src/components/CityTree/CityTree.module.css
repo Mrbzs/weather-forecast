@@ -1,0 +1,16 @@
+img {
+  filter: brightness(70%);
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.weatherIcon {
+  height: 1em;
+  width: 1.5em;
+  line-height: 15em;
+}
+
+.tree {
+  height: 100%;
+  overflow: auto;
+}

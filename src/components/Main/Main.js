@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CityTree } from './CityTree';
-import { getCityData } from '../actions';
-import { useCityValue } from '../context';
+import { CityTree } from '../CityTree/CityTree';
+import { getCityData } from '../../actions';
+import { useCityValue } from '../../context';
 
 export const Main = () => {
   const [cityData, setCityData] = useState(null);

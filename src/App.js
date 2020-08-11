@@ -1,20 +1,21 @@
 import React from 'react';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
-import { CitySelect } from './components/CitySelect';
-import { Main } from './components/Main';
+import { CitySelect } from './components/CitySelect/CitySelect';
+import { Main } from './components/Main/Main';
 import { CityProvider } from './context';
-
-const { Content } = Layout;
+import * as styles from './App.module.css';
 
 export const App = () => {
   return (
     <CityProvider>
-      <Layout className="layout">
-        <Content>
+      <Layout className={styles.layout}>
+        <Layout.Header className={styles.header} theme="light">
           <CitySelect />
+        </Layout.Header>
+        <Layout.Content className={styles.content}>
           <Main />
-        </Content>
+        </Layout.Content>
       </Layout>
     </CityProvider>
   );
