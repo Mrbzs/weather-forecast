@@ -1,5 +1,11 @@
 import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  cleanup,
+  wait
+} from '@testing-library/react';
 import { Main } from '../components/Main/Main';
 import { getCityData } from '../actions';
 
@@ -57,8 +63,15 @@ describe('<Main />', () => {
     expect(screen.queryByTestId('main')).toBeTruthy();
   });
 
-  it('requests data from API successfully', () => {
+  it('requests data from API when app is initialized and when user clicks on a city', async () => {
     render(<Main />);
-    expect(getCityData).toHaveBeenCalled();
+    expect(screen.queryByText('Loading...')).toBeTruthy();
+    expect(getCityData).toHaveBeenCalledTimes(1);
+
+    await wait(() => expect(screen.queryByText('Loading...')).toBeFalsy());
+
+    expect(screen.queryByTestId('city-tree')).toBeTruthy();
+    fireEvent.click(screen.queryAllByRole('tab')[1]);
+    expect(getCityData).toHaveBeenCalledTimes(2);
   });
 });
