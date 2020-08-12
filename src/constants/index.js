@@ -19,8 +19,8 @@ export const CITIES = [
   },
   {
     name: 'Dubai',
-    lat: 55.3,
-    lon: 25.26
+    lat: 25.26,
+    lon: 55.3
   },
   {
     name: 'Tbilisi',

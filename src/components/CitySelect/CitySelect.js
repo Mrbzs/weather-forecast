@@ -1,27 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tabs } from 'antd';
-import { useCityValue } from '../../context';
 import { CITIES } from '../../constants';
 import * as styles from './CitySelect.module.css';
 
-export const CitySelect = () => {
-  const { city, setCity } = useCityValue();
-
+export const CitySelect = ({ city, setCity }) => {
   const onChangedCity = (cityName) => {
     const selectedCity = CITIES.find((city) => city.name === cityName);
     setCity(selectedCity);
   };
 
   return (
-    <Tabs
-      className={styles.tabs}
-      value={city.name}
-      onChange={onChangedCity}
-      centered
-    >
-      {CITIES.map(({ name }) => (
-        <Tabs.TabPane key={name} tab={name}></Tabs.TabPane>
-      ))}
-    </Tabs>
+    <div data-testid="city-select">
+      <Tabs
+        className={styles.tabs}
+        value={city.name}
+        onChange={onChangedCity}
+        centered
+      >
+        {CITIES.map(({ name }) => (
+          <Tabs.TabPane key={name} tab={name} aria-label="lol"></Tabs.TabPane>
+        ))}
+      </Tabs>
+    </div>
   );
+};
+
+CitySelect.propTypes = {
+  city: PropTypes.object.isRequired,
+  setCity: PropTypes.func.isRequired
 };

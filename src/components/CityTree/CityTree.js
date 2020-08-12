@@ -73,10 +73,11 @@ export const CityTree = memo(({ cityData }) => {
       className={styles.tree}
       treeData={treeData}
       defaultExpandedKeys={['date0-0']}
+      data-testid="city-tree"
     />
   );
 });
 
 CityTree.propTypes = {
-  cityData: PropTypes.object
+  cityData: PropTypes.object.isRequired
 };
