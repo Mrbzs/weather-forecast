@@ -63,6 +63,11 @@ describe('<Main />', () => {
     expect(screen.queryByTestId('main')).toBeTruthy();
   });
 
+  it('renders the <CitySelect /> component', () => {
+    render(<Main />);
+    expect(screen.queryByTestId('city-select')).toBeTruthy();
+  });
+
   it('requests data from API when app is initialized and when user clicks on a city', async () => {
     render(<Main />);
     expect(screen.queryByText('Loading...')).toBeTruthy();
@@ -73,5 +78,11 @@ describe('<Main />', () => {
     expect(screen.queryByTestId('city-tree')).toBeTruthy();
     fireEvent.click(screen.queryAllByRole('tab')[1]);
     expect(getCityData).toHaveBeenCalledTimes(2);
+  });
+
+  it('renders the <CityTree /> component when data is fetched from API', async () => {
+    render(<Main />);
+    await wait(() => expect(screen.queryByText('Loading...')).toBeFalsy());
+    expect(screen.queryByTestId('city-tree')).toBeTruthy();
   });
 });

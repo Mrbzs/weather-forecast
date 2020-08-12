@@ -4,18 +4,13 @@ import { Tabs } from 'antd';
 import { CITIES } from '../../constants';
 import * as styles from './CitySelect.module.css';
 
-export const CitySelect = ({ city, setCity }) => {
-  const onChangedCity = (cityName) => {
-    const selectedCity = CITIES.find((city) => city.name === cityName);
-    setCity(selectedCity);
-  };
-
+export const CitySelect = ({ city, onChangedCity }) => {
   return (
     <div data-testid="city-select">
       <Tabs
         className={styles.tabs}
         value={city.name}
-        onChange={onChangedCity}
+        onChange={(cityName) => onChangedCity(cityName)}
         centered
       >
         {CITIES.map(({ name }) => (
@@ -28,5 +23,5 @@ export const CitySelect = ({ city, setCity }) => {
 
 CitySelect.propTypes = {
   city: PropTypes.object.isRequired,
-  setCity: PropTypes.func.isRequired
+  onChangedCity: PropTypes.func.isRequired
 };

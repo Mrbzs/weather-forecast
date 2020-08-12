@@ -11,6 +11,11 @@ export const Main = () => {
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState(CITIES[0]);
 
+  const onChangedCity = (cityName) => {
+    const selectedCity = CITIES.find((city) => city.name === cityName);
+    setCity(selectedCity);
+  };
+
   useEffect(() => {
     setLoading(true);
     getCityData(city).then((res) => {
@@ -31,7 +36,7 @@ export const Main = () => {
   return (
     <Layout className={styles.layout} data-testid="main">
       <Layout.Header className={styles.header}>
-        <CitySelect city={city} setCity={setCity} />
+        <CitySelect city={city} onChangedCity={onChangedCity} />
       </Layout.Header>
       <Layout.Content className={styles.content}>{content}</Layout.Content>
     </Layout>
